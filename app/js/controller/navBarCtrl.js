@@ -3,7 +3,7 @@ PCIE.controller('navBarCtrl', function ($scope, $rootScope, $location, $anchorSc
 
         LocalFactory.menu().then(function (response) {
             $scope.headerMenu = response;
-			console.log("headerMenu",$scope.headerMenu);
+			console.log("response",response);
             $scope.sousMenu = getSousMenu($location.url());
         });
 

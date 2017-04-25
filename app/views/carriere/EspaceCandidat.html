@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row bandeau_espace_candidat ">
+    <br>
+    <div class="col-sm-offset-1 col-md-6">
+        <h4><b>Informations personnelles : </b></h4>
+        <h4><b>Vous : </b></h4>
+        <h4><p>{{user.nom}} {{user.prenom}}</p></h4>
+    </div>
+    <div class="col-md-5">
+        <a ui-sref="root.carriere.formulaireCandidat({idUtilisateur:user.idUtilisateur})"  class="btn btn-primary" >Modifier ses informations</a>
+    </div>
+  </div>
+  <div class="row" ng-controller="utilisateurCtrl">
+      <div class="col-md-8">
+        <div clas="row">
+          <div class="offre_Listings" ng-init="rechercherOffresUtilisateur()">
+            <div class="offre_Listings ">
+              <div class="col-sm-offset-1 col-sm-2">
+                  <h4><b>Vous avez postulé à : </b></h4>
+              </div>
+              <table class="table offre_Listing" >
+                <tr ng-repeat="offreUtilisateur in offresUtilisateur" ng-class-odd="'tr_odd'" ng-class-even="'tr_even'"ng-mouseenter="hoverIn(offreUtilisateur)" class="ligne_offre col-md-12" >
+                  <td ng-show="offreUtilisateur.active == 1" class="col-md-1" ui-sref="root.carriere.detailOffre({idOffre:offreUtilisateur.idOffre})">
+                    <div class="image" >
+                        <img class="company_logo" src="img/java.png" width="90px" height="90px">
+                    </div>
+                  </td>
+                  <td ng-show="offreUtilisateur.active == 1" class="col-md-9" ui-sref="root.carriere.detailOffre({idOffre:offreUtilisateur.idOffre})">
+                    <div class="description">
+                      <div class="row">
+                        <h4 class="offre_titre">
+                          {{offreUtilisateur.titre}}
+                          <button class="btn btn-success button-type-contrat" ng-show="{{offreUtilisateur.typeDeContrat==='CDI'}}">{{offreUtilisateur.typeDeContrat}}</button>
+                          <button class="btn btn-info button-type-contrat" ng-show="{{offreUtilisateur.typeDeContrat==='CDD'}}">{{offreUtilisateur.typeDeContrat}}</button>
+                          <button class="btn btn-warning button-type-contrat" ng-show="{{offreUtilisateur.typeDeContrat==='interim'}}">{{offreUtilisateur.typeDeContrat}}</button>
+                        </h4>
+                      </div>
+                      <div class="row">
+                          <span class="soustitre-offre"><i class="fa fa-map-marker" aria-hidden="true"></i>{{offreUtilisateur.ville_offre}}</span>
+                          <span class="soustitre-offre"><i class="fa fa-star" aria-hidden="true"></i> {{offreUtilisateur.experience}}</span>
+                          <span class="soustitre-offre"><i class="fa fa-money" aria-hidden="true"></i> {{offreUtilisateur.salaire_offre}}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td ng-show="offreUtilisateur.active == 1" class="col-md-2" >
+                    <div >
+                      <i class="fa fa-pencil" aria-hidden="true" ui-sref="root.carriere.formulaireCandidatOffre({idUtilisateur:offreUtilisateur.idUtilisateur,idOffre:offreUtilisateur.idOffre})"></i>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div ng-init="rechercherOffresNonPostulees()">
+            <div class="card row">
+                <div class="col-sm-offset-1 col-sm-2">
+                    <h4><b>Liste des autres offres :</b></h4>
+                </div>
+            </div>
+            <div class="card row">
+              <div class="offre_Listings">
+                <div class="offre_Listings col-md-8">
+                    <table class="table offre_Listing" >
+                      <tr ng-repeat="offre in offresNonPostulees" ng-class-odd="'tr_odd'" ng-class-even="'tr_even'"ui-sref="root.carriere.detailOffre({idOffre:offre.idOffre})" ng-mouseenter="hoverIn(offre)" class="ligne_offre col-md-12" >
+                        <td ng-show="offre.active == 1" class="col-md-1">
+                          <div class="image" >
+                              <img class="company_logo" src="img/java.png" width="90px" height="90px">
+                          </div>
+                        </td>
+                        <td ng-show="offre.active == 1" class="col-md-11">
+                          <div class="description">
+                            <div class="row">
+                              <h4 class="offre_titre">
+                                {{offre.titre}}
+                                <button class="btn btn-success button-type-contrat" ng-show="{{offre.typeDeContrat==='CDI'}}">{{offre.typeDeContrat}}</button>
+                                <button class="btn btn-info button-type-contrat" ng-show="{{offre.typeDeContrat==='CDD'}}">{{offre.typeDeContrat}}</button>
+                                <button class="btn btn-warning button-type-contrat" ng-show="{{offre.typeDeContrat==='interim'}}">{{offre.typeDeContrat}}</button>
+                              </h4>
+                            </div>
+                            <div class="row">
+                                <span class="soustitre-offre"><i class="fa fa-map-marker" aria-hidden="true"></i>{{offre.ville_offre}}</span>
+                                <span class="soustitre-offre"><i class="fa fa-star" aria-hidden="true"></i> {{offre.experience}}</span>
+                                <span class="soustitre-offre"><i class="fa fa-money" aria-hidden="true"></i> {{offre.salaire_offre}}</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class=" article_offre offre_detail" ui-sref="root.carriere.detailOffre({idOffre:offreCourante.idOffre})">
+          <div class="row">
+              <img class="company_logo" src="img/java.png" width="90px" height="90px">
+          </div>
+          <div>
+            <h4>{{offreCourante.titre}}
+              <button class="btn btn-success button-type-contrat">{{offreCourante.typeDeContrat}}</button>
+              <button class="btn btn-info button-type-contrat" ng-show="{{offreCourante.typeDeContrat==='CDD'}}">{{offreCourante.typeDeContrat}}</button>
+              <button class="btn btn-warning button-type-contrat" ng-show="{{offreCourante.typeDeContrat==='interim'}}">{{offreCourante.typeDeContrat}}</button>
+            </h4>
+            <div class="row">
+                <span class="soustitre-offre">  <i class="fa fa-map-marker" aria-hidden="true"></i>{{offreCourante.ville_offre}}</span>
+                <span class="soustitre-offre"><i class="fa fa-star" aria-hidden="true"></i> {{offreCourante.experience}}</span>
+                <span class="soustitre-offre"><i class="fa fa-money" aria-hidden="true"></i> {{offreCourante.salaire_offre}}</span>
+            </div>
+            {{offreCourante.description}}
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<script type="text/javascript" src="./js/scrollSpy.js"></script>

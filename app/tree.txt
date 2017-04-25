@@ -1,0 +1,108 @@
+Structure du dossier pour le volume OS
+Le num‚ro de s‚rie du volume est 9C28-AA46
+C:\USERS\JULIEN\DESKTOP\PCIE-MASTER\APP
+|   index.html
+|   
++---bower_components
+|   +---angular      
+|   +---angular-animate     
+|   +---angular-aria      
+|   +---angular-bootstrap    
+|   +---angular-file-saver
+|   +---angular-material         
+|   +---angular-messages
+|   +---angular-resource  
+|   +---angular-ui-router        
+|   +---components-font-awesome
+|   +---es6-promise          
+|   +---file-saver.js     
+|   +---font-awesome           
+|   +---jquery              
+|   +---lodash                  
+|   +---ng-file-upload       
+|   +---ng-table           
+|   +---restangular          
+|   +---sweetalert2
+| 
++---css
+|       main.css
+|       
++---data
+|       menu.json
+|       
++---img
+|       bureau.jpg
+|       code.jpg
+|       java.png
+|       laptop.png
+|       lieu.png
+|       pcie-logo.gif
+|       
++---js
+|   |   app.js
+|   |   config.js
+|   |   pcie.js
+|   |   scrollSpy.js
+|   |   
+|   +---controller
+|   |   |   footerCtrl.js
+|   |   |   navBarCtrl.js
+|   |   |   
+|   |   +---carriere
+|   |   |       carriereCtrl.js
+|   |   |       competenceCtrl.js
+|   |   |       loginCtrl.js
+|   |   |       offreCtrl.js
+|   |   |       utilisateurCtrl.js
+|   |   |       
+|   |   +---pcie
+|   |   |       pcieCtrl.js
+|   |   |       
+|   |   \---service
+|   |           serviceCtrl.js
+|   |           
+|   +---factory
+|   |   |   authInterceptor.js
+|   |   |   
+|   |   +---json
+|   |   |       localFactory.js
+|   |   |       
+|   |   \---rest
+|   |           authFactory.js
+|   |           competenceFactory.js
+|   |           offreFactory.js
+|   |           restService.js
+|   |           utilisateurFactory.js
+|   |           
+|   \---service
+|           anchorService.js
+|           competenceService.js
+|           offreService.js
+|           sessionService.js
+|           utilisateurService.js
+|           
+\---views
+    |   accueil.html
+    |   footer.html
+    |   header.html
+    |   tinyHeader.html
+    |   
+    +---carriere
+    |       carriere.html
+    |       detailCandidatOffre.html
+    |       detailOffre.html
+    |       EspaceCandidat.html
+    |       EspaceRH.html
+    |       formulaireCandidat.html
+    |       formulaireCandidatOffre.html
+    |       formulaireCandidatureSpontanee.html
+    |       formulaireOffre.html
+    |       mentionLegales.html
+    |       PostulantsOffre.html
+    |       
+    +---pcie
+    |       pcie.html
+    |       
+    \---service
+            service.html
+            

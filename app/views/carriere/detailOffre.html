@@ -1,0 +1,93 @@
+<section id="travail" ng-controller="offreCtrl" ng-init="rechercherOffre()">
+  <div class="row">
+    <div class="container_titre_offre">
+      <div class="row">
+        <br><br><br><h4 class="col-sm-offset-2 col-md-4"><i class="fa fa-tag" aria-hidden="true"></i>{{offre.titre}}</h4>
+        <h4 class="col-md-2"></h4>
+        <button  ng-if="user.idrang==2" ui-sref="root.carriere.mentionsLegales({idOffre:offre.idOffre})" class="col-md-1 btn btn-primary">Postuler</button><br>
+        <button  ng-if="(!user.idrang) || (user.idrang='')" ui-sref="root.carriere.formulaireCandidat({idOffre:offre.idOffre})" class="col-md-1 btn btn-primary">S'inscrire pour candidater</button><br>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-2">
+          <button class="btn btn-success button-type-contrat" ng-show="{{offre.typeDeContrat===CDI}}">{{offre.typeDeContrat}}</button>
+          <button class="btn btn-info button-type-contrat" ng-show="{{offre.typeDeContrat==='CDD'}}">{{offre.typeDeContrat}}</button>
+          <button class="btn btn-warning button-type-contrat" ng-show="{{offre.typeDeContrat==='interim'}}">{{offre.typeDeContrat}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container_description_offre col-sm-offset-2 col-md-6">
+      <div class="row">
+        <br>
+        <div class="col-md-2 image">
+            <img class="company_logo" src="img/java.png" width="90px" height="90px"></img>
+        </div>
+        <div class="col-md-3 compagnie_details">
+            <h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{offre.ville_offre}}</h4>
+        </div>
+      </div>
+      <div class="row">
+          <p class="paragraphe_offre">{{offre.description}}</p>
+      </div>
+    </div>
+    <div class="container_detail_offre col-md-4">
+      <div class="row">
+          <div class="col-md-4">
+              <h5><i class="fa fa-star" aria-hidden="true"></i> {{offre.experience}}</h5>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <h5><i class="fa fa-money" aria-hidden="true"></i> {{offre.salaire_offre}}</h5>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-4">
+              <h5><i class="fa fa-bus" aria-hidden="true"></i> {{offre.zoneDeDeplacement}}</h5>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-3">
+              <h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Publication</h5>
+          </div>
+          <div class="col-sm-1">
+              <h5>{{offre.datePublication}}</h5>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-3">
+              <h5><i class="fa fa-calendar-o" aria-hidden="true"></i> Actualisation</h5>
+          </div>
+          <div class="col-sm-1">
+              <h5>{{offre.dateActualisation}}</h5>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            <h5><i class="fa fa-user" aria-hidden="true"></i> Suivi  </h5>
+        </div>
+          <div class="col-md-2">
+              <h5>{{offre.suivi}}</h5>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            <h5><i class="fa fa-tags" aria-hidden="true"></i> Ref Apec  </h5>
+        </div>
+          <div class="col-md-2">
+              <h5>{{offre.refApec}}</h5>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-2">
+              <h5>Competences  </h5>
+          </div>
+          <div class="col-sm-2">
+              <h5 ng-repeat="competence in competences">{{competence.titre}}</h5>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript" src="./js/scrollSpy.js"></script>

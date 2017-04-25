@@ -1,0 +1,130 @@
+C:\USERS\JULIEN\DESKTOP\PCIE-MASTER
+|   app.js
+|   mail.json
+|   package.json
+|   
++---.git
++---.idea
++---app
+|   |   index.html
+|   |   tree.txt 
+|   +---bower_components
+|   |   +---angular
+|   |   +---angular-animate
+|   |   +---angular-aria
+|   |   +---angular-bootstrap
+|   |   +---angular-file-saver        
+|   |   +---angular-material
+|   |   +---angular-ui-router           
+|   |   +---blob-polyfill
+|   |   +---bootstrap           
+|   |   +---components-font-awesome          
+|   |   +---es6-promise      
+|   |   +---font-awesome           
+|   |   +---jquery              
+|   |   +---lodash                  
+|   |   +---ng-file-upload      
+|   |   +---ng-table          
+|   |   +---restangular           
+|   |   +---sweetalert2
+|   |
+|   +---css
+|   |       main.css
+|   |       
+|   +---data
+|   |       menu.json
+|   |       
+|   +---img
+|   |       billing.png
+|   |       bureau.jpg
+|   |       code.jpg
+|   |       entreprise.png
+|   |       java.png
+|   |       laptop.png
+|   |       lieu.png
+|   |       pcie-logo.gif
+|   |       shedule.png
+|   |       
+|   +---js
+|   |   |   app.js
+|   |   |   config.js
+|   |   |   pcie.js
+|   |   |   scrollSpy.js
+|   |   |   
+|   |   +---controller
+|   |   |   |   footerCtrl.js
+|   |   |   |   navBarCtrl.js
+|   |   |   |   
+|   |   |   +---carriere
+|   |   |   |       carriereCtrl.js
+|   |   |   |       competenceCtrl.js
+|   |   |   |       loginCtrl.js
+|   |   |   |       offreCtrl.js
+|   |   |   |       utilisateurCtrl.js
+|   |   |   |       
+|   |   |   +---pcie
+|   |   |   |       pcieCtrl.js
+|   |   |   |       
+|   |   |   \---service
+|   |   |           serviceCtrl.js
+|   |   |           
+|   |   +---factory
+|   |   |   |   authInterceptor.js
+|   |   |   |   
+|   |   |   +---json
+|   |   |   |       localFactory.js
+|   |   |   |       
+|   |   |   \---rest
+|   |   |           authFactory.js
+|   |   |           competenceFactory.js
+|   |   |           offreFactory.js
+|   |   |           restService.js
+|   |   |           utilisateurFactory.js
+|   |   |           
+|   |   \---service
+|   |           anchorService.js
+|   |           competenceService.js
+|   |           offreService.js
+|   |           sessionService.js
+|   |           utilisateurService.js
+|   |           
+|   \---views
+|       |   accueil.html
+|       |   footer.html
+|       |   header.html
+|       |   tinyHeader.html
+|       |   
+|       +---carriere
+|       |       carriere.html
+|       |       detailCandidatOffre.html
+|       |       detailOffre.html
+|       |       EspaceCandidat.html
+|       |       EspaceRH.html
+|       |       formulaireCandidat.html
+|       |       formulaireCandidatOffre.html
+|       |       formulaireCandidatureSpontanee.html
+|       |       formulaireOffre.html
+|       |       mentionLegales.html
+|       |       PostulantsOffre.html
+|       |       
+|       +---pcie
+|       |       pcie.html
+|       |       
+|       \---service
+|               service.html
+|               
++---controller
+|       UserController.js
+|       
++---dao
+|       competences.js
+|       index.js
+|       offres.js
+|       rangs.js
+|       utilisateurs.js
+|       
++---files       
++---node_modules          
++---service
+        authorize.js
+        

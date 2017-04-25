@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" ng-controller="offreCtrl" ng-init="(idOffre && idOffre !== '')?rechercherOffre():init();">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>Offre </h1>
+            <form name="offreForm" class="form-horizontal">
+                <div>
+                    <input type="hidden" ng-model="offre.idOffre" name = "idOffre">
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Titre</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.titre" name = "titre" ><br>
+                        <div ng-if="offreForm.titre.$dirty" ng-messages="offreForm.titre.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">nb de Postes</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.nbDePostes" name = "nb" ><br>
+                        <div ng-if="offreForm.nb.$dirty" ng-messages="offreForm.nb.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">type de contrat</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.typeDeContrat" name = "nb" ><br>
+                        <div ng-if="offreForm.typeDeContrat.$dirty" ng-messages="offreForm.typeDeContrat.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">statut</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.statut" name = "status" ><br>
+                        <div ng-if="offreForm.status.$dirty" ng-messages="offreForm.status.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Ville</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.ville_offre" name = "ville"><br>
+                        <div ng-if="offreForm.ville.$dirty" ng-messages="offreForm.ville.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Code Postal</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.code_postal_offre" name = "code_postal"><br>
+                        <div ng-if="offreForm.code_postal.$dirty" ng-messages="offreForm.code_postal.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Zone de Déplacement</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.zoneDeDeplacement" name = "zone" ><br>
+                        <div ng-if="offreForm.zoneDeDeplacement.$dirty" ng-messages="offreForm.zoneDeDeplacement.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Salaire</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.salaire_offre" name = "salaire"><br>
+                        <div ng-if="offreForm.salaire.$dirty" ng-messages="offreForm.salaire.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Expérience</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.experience" name = "experience"><br>
+                        <div ng-if="offreForm.experience.$dirty" ng-messages="offreForm.experience.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Suivi</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.suivi" name = "suivi"><br>
+                        <div ng-if="offreForm.suivi.$dirty" ng-messages="offreForm.suivi.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Description</label>
+                    <div class="col-sm-7">
+                                <textarea required ng-model="offre.description" class="form-control" name = "description" rows="20" cols="150">
+                                </textarea>
+                        <div ng-messages="offreForm.description.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Active (0/1)</label>
+                    <div class="col-sm-7">
+                        <select class="form-control" required ng-model="offre.active" name = "active" ><br>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Competences</label>
+                    <div class="col-sm-7">
+                        <select multiple="true" ng-model="selectedCompetences" ng-options="competence.titre for competence in competences track by competence.idcompetence"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Référence Apec</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.refApec" name = "suivi"><br>
+                        <div ng-if="offreForm.refApec.$dirty" ng-messages="offreForm.refApec.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Date de Publication</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.datePublication" name = "suivi"><br>
+                        <div ng-if="offreForm.datePublication.$dirty" ng-messages="offreForm.datePublication.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-offset-1 col-sm-3">Date d'Actualisation</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" required ng-model="offre.dateActualisation" name = "suivi"><br>
+                        <div ng-if="offreForm.dateActualisation.$dirty" ng-messages="offreForm.dateActualisation.$error">
+                            <div class="alert" ng-message="required">Veuillez renseigner ce champ!</div>
+                        </div><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-3">
+                            <button ng-if = "offre.idOffre" ng-click="enregistrerOffre()"   class="btn btn-primary">Mettre à jour</button>
+                            <button ng-if = "!offre.idOffre" ng-click="enregistrerOffre()"  class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

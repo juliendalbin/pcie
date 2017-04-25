@@ -1,0 +1,124 @@
+
+<section class="container" id="offres" ng-controller="offreCtrl" ng-init="rechercherOffres()">
+  <div class="row">
+    <div class="offre_Listings col-md-8">
+      <div class="card card-block offre_Listings ">
+          <table class="table offre_Listing" >
+            <tr ng-repeat="offre in offres" ng-class-odd="'tr_odd'" ng-class-even="'tr_even'"ng-mouseenter="hoverIn(offre)" class="ligne_offre col-md-12" ui-sref="root.carriere.detailOffre({idOffre:offre.idOffre})">
+              <td ng-show="offre.active == 1" class="col-md-1">
+                <div class="image" >
+                    <img class="company_logo" src="img/java.png" width="90px" height="90px">
+                </div>
+              </td>
+              <td ng-show="offre.active == 1" class="col-md-11">
+                <div class="description">
+                  <div class="row">
+                    <h4 class="offre_titre">
+                      {{offre.titre}}
+                      <button class="btn btn-success button-type-contrat" ng-show="{{offre.typeDeContrat==='CDI'}}">{{offre.typeDeContrat}}</button>
+                      <button class="btn btn-info button-type-contrat" ng-show="{{offre.typeDeContrat==='CDD'}}">{{offre.typeDeContrat}}</button>
+                      <button class="btn btn-warning button-type-contrat" ng-show="{{offre.typeDeContrat==='interim'}}">{{offre.typeDeContrat}}</button>
+                    </h4>
+                  </div>
+                  <div class="row">
+                      <span class="soustitre-offre"><i class="fa fa-map-marker" aria-hidden="true"></i>{{offre.ville_offre}}</span>
+                      <span class="soustitre-offre"><i class="fa fa-star" aria-hidden="true"></i> {{offre.experience}}</span>
+                      <span class="soustitre-offre"><i class="fa fa-money" aria-hidden="true"></i> {{offre.salaire_offre}}</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="article_offre offre_detail" ui-sref="root.carriere.detailOffre({idOffre:offreCourante.idOffre})">
+          <div class="row">
+              <img class="company_logo" src="img/java.png" width="90px" height="90px">
+          </div>
+          <div>
+            <h4> {{offreCourante.titre}}
+              <button class="btn btn-success button-type-contrat">{{offreCourante.typeDeContrat}}</button>
+              <button class="btn btn-info button-type-contrat" ng-show="{{offreCourante.typeDeContrat==='CDD'}}">{{offreCourante.typeDeContrat}}</button>
+              <button class="btn btn-warning button-type-contrat" ng-show="{{offreCourante.typeDeContrat==='interim'}}">{{offreCourante.typeDeContrat}}</button>
+            </h4>
+            <div class="row">
+                <span class="soustitre-offre">  <i class="fa fa-map-marker" aria-hidden="true"></i>{{offreCourante.ville_offre}}</span>
+                <span class="soustitre-offre"><i class="fa fa-star" aria-hidden="true"></i> {{offreCourante.experience}}</span>
+                <span class="soustitre-offre"><i class="fa fa-money" aria-hidden="true"></i> {{offreCourante.salaire_offre}}</span>
+            </div>
+            {{offreCourante.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" se_connecter col-md-8" ng-controller="loginCtrl">
+          <form class="form-horizontal" role="form">
+              <div class="form-group">
+                  <label class="control-label col-sm-3" >Email:</label>
+                  <div class="col-sm-6">
+                      <input type="email" ng-model="userData.email" name="email" placeholder="Addresse Email" required="" class="form-control">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-3" >Password:</label>
+                  <div class="col-sm-6">
+                      <input type="password" ng-model="userData.password" name="password" placeholder="Mot de passe" required="" class="form-control">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-6">
+                      <button type="submit" ng-click='login(user)' name="go" class="btn btn-block btn-info">S'identifier</button>
+                  </div>
+              </div>
+              <div class="col-sm-offset-3 col-sm-6">
+                  <h4>Je postule pour la première fois</h4><a style="width:100%" ui-sref="root.carriere.formulaireCandidat">S'incrire</a><br>
+              </div>
+              <div class="col-sm-offset-3 col-sm-6">
+                  <h4>Mot de passe oublié</h4><a style="width:100%" data-toggle="modal" data-target="#myModal">renvoyer</a>
+              </div>
+          </form>
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Mot de passe oublié</h4>
+                      </div>
+                      <div class="modal-body">
+                          <form name="mailForm">
+                              <div class="form-group">
+                                  <label class="col-sm-offset-1 col-sm-2">mail : </label>
+                                  <div class="col-sm 4">
+                                      <input type="text" required ng-model="mail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" class="form-control" name = "mail"><br>
+                                      <div ng-if="mailForm.mail.$dirty" ng-messages="mailForm.mail.$error">
+                                          <div ng-message="required">Veuillez renseigner ce champ!</div>
+                                          <div class="alert" ng-message="pattern">Veuillez entrer un email valide!</div>
+                                      </div><br>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <div class="col-sm-offset-1 col-sm-2">
+                                      <button ng-click="resendMail(mail)" class="btn btn-primary">Renvoyer un mot de passe</button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+        <div class="candidature_spontanee col-md-4">
+            <h1 >Candidature Spontanée</h1><br>
+            <a ui-sref="root.carriere.formulaireCandidatureSpontanee">Candidater</a><br>
+        </div>
+      </div>
+</section>
+<script type="text/javascript" src="./js/scrollSpy.js"></script>

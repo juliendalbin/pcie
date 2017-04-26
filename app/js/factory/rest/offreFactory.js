@@ -4,7 +4,7 @@
         /**
          * Created by P10-PCIE-MAF on 01/08/2016.
          */
-        PCIE.factory("offreFactory", function( RestService, $q) {
+        PCIE.factory("offreFactory", function( RestService, $q, $http) {
         var rest = RestService.create('/');
         return {
             rechercherOffre : function(idOffre) {
@@ -35,12 +35,16 @@
                 return deferred.promise;
             },
 
-            rechercherOffres : function() {
-                var deferred = $q.defer();
-                rest.all("offre").getList().then(function (data) {
-                    deferred.resolve(data.plain());
-                });
-                return deferred.promise;
+            rechercherOffres : function () {
+				var deffered = $q.defer();
+				$http.get('offre').then(function (success){
+					deffered.resolve(success.data);
+					console.log("success.data.menu",success.data);
+				},function (error){
+					deferred.reject(error);
+					console.log("error",error);
+				});
+				return deffered.promise;
             },
 
             rechercherUtilisateursOffre : function(idOffre) {

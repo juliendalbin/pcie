@@ -8,8 +8,8 @@ PCIE.service('offreService', function(offreFactory) {
 
     this.rechercherOffres = function (){
         return offreFactory.rechercherOffres().then(function (data) {
-            console.log(data.headers);
-            return data;
+            console.log("data service",data);
+			return data;
         });
     };
 

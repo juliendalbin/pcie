@@ -2,7 +2,7 @@ PCIE.factory("RestService", [ "Restangular", "$rootScope", function(Restangular,
 	return {
 		create : function(service) {
 
-	        Restangular.setBaseUrl('http://localhost:4300');;
+	        Restangular.setBaseUrl('');;
 
 			return Restangular.all(service);
 		}, 

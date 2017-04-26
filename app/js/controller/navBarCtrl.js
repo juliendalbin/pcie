@@ -1,7 +1,7 @@
 PCIE.controller('navBarCtrl', function ($scope, $rootScope, $location, $anchorScroll, LocalFactory, anchorService) {
         "use strict";
 
-        LocalFactory.menu().then(function (response) {
+        LocalFactory.success(function (response) {
             $scope.headerMenu = response;
 			console.log("response",response);
             $scope.sousMenu = getSousMenu($location.url());

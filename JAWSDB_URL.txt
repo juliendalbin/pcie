@@ -1,0 +1,2 @@
+$ heroku config:get JAWSDB_URL
+mysql://hkdk7vaof7etkene:ww0d1a91i4fx1scv@vvfv20el7sb2enn3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/s0ftlpec886sxi03

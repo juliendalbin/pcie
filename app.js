@@ -78,11 +78,11 @@ app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(
     connection(mysql, {
 
-        host: 'localhost',
-        user: 'root',
-        password: 'Paraski0',
+        host: 'vvfv20el7sb2enn3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'hkdk7vaof7etkene',
+        password: 'ww0d1a91i4fx1scv',
         port: 3306, //port mysql
-        database: 'mydb'
+        database: 's0ftlpec886sxi03'
 
     }, 'pool') //or single
 

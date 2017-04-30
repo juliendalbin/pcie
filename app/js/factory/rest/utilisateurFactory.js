@@ -55,7 +55,7 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
 
         rechercherOffresUtilisateur: function (idUtilisateur) {
             var deferred = $q.defer();
-            $http.get("api/utilisateur/offres"+idUtilisateur).then(function (success){
+            $http.get("api/utilisateur/offres/"+idUtilisateur).then(function (success){
                 deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
@@ -105,7 +105,7 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
 
         offreUtilisateurExist: function (idUtilisateur,idOffre) {
             var deferred = $q.defer();
-            $http.get("api/utilisateur/offre/exist").get(idUtilisateur + "/" + idOffre).then(function (success){
+            $http.get("api/utilisateur/offre/exist/"+idUtilisateur + "/" + idOffre).then(function (success){
                 deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
@@ -115,7 +115,7 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
 
         rechercherOffresNonPostulees: function (idUtilisateur) {
             var deferred = $q.defer();
-            $http.get("api/utilisateur/offre/nonPostulees"+idUtilisateur).then(function (success){
+            $http.get("api/utilisateur/offre/nonPostulees/"+idUtilisateur).then(function (success){
                 deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);

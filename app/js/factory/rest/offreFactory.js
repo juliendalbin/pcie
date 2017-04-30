@@ -60,7 +60,7 @@
 
             rechercherUtilisateursOffre : function(idOffre) {
                 var deferred = $q.defer();
-                $http.get("/api/offre/utilisateurs"+idOffre).then(function (success){
+                $http.get("/api/offre/utilisateurs/"+idOffre).then(function (success){
                		deferred.resolve(success.data);
 				},function (error){
 					deferred.reject(error);

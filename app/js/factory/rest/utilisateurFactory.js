@@ -5,9 +5,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
     return {
 
         enregistrerPasswordUtilisateur: function (password,idUtilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("savePasswordUtilisateur/"+password+"/"+idUtilisateur).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -15,9 +15,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         rechercherUtilisateurByMail: function (mail) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("utilisateurByMail/"+mail).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -25,9 +25,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         rechercherUtilisateur: function (idUtilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/utilisateur/"+idUtilisateur).then(function (success){
-                deffered.resolve(success.data.plain());
+                deferred.resolve(success.data.plain());
             },function (error){
                 deferred.reject(error);
             });
@@ -35,18 +35,18 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         enregistrerUtilisateur: function (utilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/add",utilisateur).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
             return deferred.promise;
         },
         mettreAJourUtilisateur: function (idUtilisateur, data ) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/update/" + idUtilisateur,data).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -54,9 +54,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         rechercherOffresUtilisateur: function (idUtilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/utilisateur/offres"+idUtilisateur).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -64,9 +64,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         mettreAJourOffreUtilisateur: function (idUtilisateur, idOffre, data ) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/offre/update/" + idUtilisateur + "/" + idOffre,data).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -74,9 +74,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         mettreAJourCommentaireCandidat: function (idUtilisateur, data ) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/candidat/update/" + idUtilisateur,data).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -84,9 +84,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         enregistrerOffreUtilisateur: function (idUtilisateur,idOffre,data) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/offre/add/" + idUtilisateur + "/" + idOffre,data).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -94,9 +94,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         supprimerOffreUtilisateur: function (idUtilisateur,idOffre) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/utilisateur/offre/delete/" + idUtilisateur + "/" + idOffre).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -104,9 +104,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         offreUtilisateurExist: function (idUtilisateur,idOffre) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/utilisateur/offre/exist").get(idUtilisateur + "/" + idOffre).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -114,9 +114,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         rechercherOffresNonPostulees: function (idUtilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/utilisateur/offre/nonPostulees"+idUtilisateur).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -124,9 +124,9 @@ PCIE.factory("utilisateurFactory", function($http, $q) {
         },
 
         enregistrerCandidatureSpontanee: function (utilisateur) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/utilisateur/candidatureSpontanee",utilisateur).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });

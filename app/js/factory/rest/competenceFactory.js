@@ -5,9 +5,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
     return {
 
         enregistrerCompetence: function (competence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("api/competence/add/",competence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -15,9 +15,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         mettreAJourCompetence: function (idCompetence,competence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.post("/api/competence/update/"+idCompetence,competence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -27,7 +27,7 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         rechercherCompetences : function() {
             var deferred = $q.defer();
             $http.get("/api/competence").then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -35,9 +35,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         supprimerCompetence: function (idCompetence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("/api/competence/delete/"+idCompetence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -45,9 +45,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         supprimerCompetence: function (idcompetence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/competence/delete/"+idcompetence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -55,18 +55,18 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         supprimerCompetenceOffre: function (idcompetence,idOffre) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("/api/competence/offre/delete/"+idcompetence+"/"+idOffre).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
             return deferred.promise;
         },
         ajouterCompetenceOffre: function (idcompetence,idOffre) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("/api/competence/offre/add/"+idcompetence+"/"+idOffre).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -74,9 +74,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         ajouterNiveau: function (idUtilisateur,idOffre,idCompetence,niveau) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("/api/competence/offre/utilisateur/niveau/add/"+idUtilisateur+"/"+idOffre+"/"+idCompetence+"/"+niveau).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -84,9 +84,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         supprimerNiveau: function (idUtilisateur,idOffre,idCompetence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/competence/offre/utilisateur/niveau/delete/"+idUtilisateur+"/"+idOffre+"/"+idCompetence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });
@@ -94,9 +94,9 @@ PCIE.factory("competenceFactory", function( $http, $q) {
         },
 
         rechercherCompetenceNiveau: function (idUtilisateur,idOffre,idCompetence) {
-            var deffered = $q.defer();
+            var deferred = $q.defer();
             $http.get("api/competence/offre/utilisateur/"+idUtilisateur+"/"+idOffre+"/"+idCompetence).then(function (success){
-                deffered.resolve(success.data);
+                deferred.resolve(success.data);
             },function (error){
                 deferred.reject(error);
             });

@@ -9,7 +9,7 @@
             rechercherOffre : function(idOffre) {
                 var deferred = $q.defer();
                 $http.get("/offre/"+idOffre).then(function(success){
-					deferred.resolve(success.data);
+					deferred.resolve(success.data) ;
 				},function (error){
 					deferred.reject(error);
 				});

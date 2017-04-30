@@ -1,12 +1,13 @@
-PCIE.factory("authFactory", function(RestService, $q) {
-    var rest = RestService.create('auth');
+PCIE.factory("authFactory", function($http, $q) {
     return {
         login: function (user) {
             var deffered = $q.defer();
-            rest.post(user).then(function (data) {
-                deffered.resolve(data.plain());
+            $http.post("/auth",user).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         }
     }
 });

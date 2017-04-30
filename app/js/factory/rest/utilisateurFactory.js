@@ -1,111 +1,136 @@
 /**
  * Created by P10-PCIE-MAF on 01/08/2016.
  */
-PCIE.factory("utilisateurFactory", function(RestService, $q) {
-    var rest = RestService.create('/');
+PCIE.factory("utilisateurFactory", function($http, $q) {
     return {
 
         enregistrerPasswordUtilisateur: function (password,idUtilisateur) {
             var deffered = $q.defer();
-            rest.get("savePasswordUtilisateur/"+password+"/"+idUtilisateur).then(function () {
-                deffered.resolve();
+            $http.get("savePasswordUtilisateur/"+password+"/"+idUtilisateur).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         rechercherUtilisateurByMail: function (mail) {
             var deffered = $q.defer();
-            rest.get("utilisateurByMail/"+mail).then(function (data) {
-                deffered.resolve(data);
-        });
-            return deffered.promise;
+            $http.get("utilisateurByMail/"+mail).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
+            });
+            return deferred.promise;
         },
 
         rechercherUtilisateur: function (idUtilisateur) {
             var deffered = $q.defer();
-            rest.get("api/utilisateur/"+idUtilisateur).then(function (data) {
-                deffered.resolve(data.plain());
+            $http.get("api/utilisateur/"+idUtilisateur).then(function (success){
+                deffered.resolve(success.data.plain());
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         enregistrerUtilisateur: function (utilisateur) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/add").post(utilisateur).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/add",utilisateur).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
         mettreAJourUtilisateur: function (idUtilisateur, data ) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/update/" + idUtilisateur).post(data).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/update/" + idUtilisateur,data).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         rechercherOffresUtilisateur: function (idUtilisateur) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/offres").get(idUtilisateur).then(function (data) {
-                deffered.resolve(data.plain());
+            $http.get("api/utilisateur/offres"+idUtilisateur).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         mettreAJourOffreUtilisateur: function (idUtilisateur, idOffre, data ) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/offre/update/" + idUtilisateur + "/" + idOffre).post(data).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/offre/update/" + idUtilisateur + "/" + idOffre,data).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         mettreAJourCommentaireCandidat: function (idUtilisateur, data ) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/candidat/update/" + idUtilisateur).post(data).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/candidat/update/" + idUtilisateur,data).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         enregistrerOffreUtilisateur: function (idUtilisateur,idOffre,data) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/offre/add/" + idUtilisateur + "/" + idOffre).post(data).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/offre/add/" + idUtilisateur + "/" + idOffre,data).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         supprimerOffreUtilisateur: function (idUtilisateur,idOffre) {
             var deffered = $q.defer();
-            rest.get("api/utilisateur/offre/delete/" + idUtilisateur + "/" + idOffre).then(function () {
-                deffered.resolve();
+            $http.get("api/utilisateur/offre/delete/" + idUtilisateur + "/" + idOffre).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         offreUtilisateurExist: function (idUtilisateur,idOffre) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/offre/exist").get(idUtilisateur + "/" + idOffre).then(function (data) {
-                deffered.resolve(data);
+            $http.get("api/utilisateur/offre/exist").get(idUtilisateur + "/" + idOffre).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         rechercherOffresNonPostulees: function (idUtilisateur) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/offre/nonPostulees").get(idUtilisateur).then(function (data) {
-                deffered.resolve(data.plain());
+            $http.get("api/utilisateur/offre/nonPostulees"+idUtilisateur).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         },
 
         enregistrerCandidatureSpontanee: function (utilisateur) {
             var deffered = $q.defer();
-            rest.all("api/utilisateur/candidatureSpontanee").post(utilisateur).then(function () {
-                deffered.resolve();
+            $http.post("api/utilisateur/candidatureSpontanee",utilisateur).then(function (success){
+                deffered.resolve(success.data);
+            },function (error){
+                deferred.reject(error);
             });
-            return deffered.promise;
+            return deferred.promise;
         }
     }
 })

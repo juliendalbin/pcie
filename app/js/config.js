@@ -77,7 +77,7 @@ PCIE.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/PostulantsOffre/:idOffre',
             views: {
                 'container@': {
-                    templateUrl: '../views/carriere/PostulantsOffre.html',
+                    templateUrl: '../views/carriere/postulantsOffre.html',
                     controller: 'offreCtrl'
                 }
             }

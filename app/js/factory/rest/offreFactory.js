@@ -55,7 +55,7 @@
 					deferred.reject(error);
 					console.log("error",error);
 				});
-				retur		deferred.promise;
+				return	deferred.promise;
             },
 
             rechercherUtilisateursOffre : function(idOffre) {

@@ -77,7 +77,7 @@ PCIE.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/PostulantsOffre/:idOffre',
             views: {
                 'container@': {
-                    templateUrl: '../views/carriere/postulantsOffre.html',
+                    templateUrl: '../views/carriere/PostulantsOffre.html',
                     controller: 'offreCtrl'
                 }
             }
@@ -127,7 +127,7 @@ PCIE.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/espaceCandidat/:idUtilisateur?',
             views: {
                 'container@': {
-                    templateUrl: '../views/carriere/espaceCandidat.html',
+                    templateUrl: '../views/carriere/EspaceCandidat.html',
                     controller: 'utilisateurCtrl'
                 }
             }
@@ -157,7 +157,7 @@ PCIE.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/espaceRH',
             views: {
                 'container@': {
-                    templateUrl: '../views/carriere/espaceRH.html',
+                    templateUrl: '../views/carriere/EspaceRH.html',
                     controller: 'offreCtrl'
                 }
             }

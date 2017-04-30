@@ -47,7 +47,7 @@
             },
 
             rechercherOffres : function () {
-				va		deferred = $q.defer();
+				var	deferred = $q.defer();
 				$http.get('offre').then(function (success){
 					deferred.resolve(success.data);
 					console.log("success.data.menu",success.data);
@@ -55,7 +55,7 @@
 					deferred.reject(error);
 					console.log("error",error);
 				});
-				return	deferred.promise;
+				return deferred.promise;
             },
 
             rechercherUtilisateursOffre : function(idOffre) {
@@ -79,7 +79,7 @@
             },
 
             activerCompetence : function (idOffre) {
-                va		deferred = $q.defer();
+                var deferred = $q.defer();
                 $http.get("/api/offre/activer/"+idOffre).then(function (success){
                		deferred.resolve(success.data.plain());
 				},function (error){
@@ -89,7 +89,7 @@
             },
 
             desactiverCompetence : function (idOffre) {
-                va		deferred = $q.defer();
+                var deferred = $q.defer();
                 $http.get("/api/offre/desactiver/"+idOffre).then(function (success){
                		deferred.resolve(success.data.plain());
 				},function (error){
